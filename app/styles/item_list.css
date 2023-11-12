@@ -13,8 +13,21 @@ ul {
 
 span {
   overflow-wrap: break-word;
+}
 
-  & .done {
-    text-decoration-line: line-through;
+span.done {
+  text-decoration-line: line-through;
+}
+
+.box {
+  border: none;
+  float: right;
+  vertical-align: middle;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(236, 233, 233);
+
+  &.done {
+    background-color: yellowgreen;
   }
 }

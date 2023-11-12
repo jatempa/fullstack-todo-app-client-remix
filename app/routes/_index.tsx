@@ -12,7 +12,7 @@ import ItemList from "~/components/ItemList";
 import Results from "~/components/Results";
 import type { Task } from "~/components/Item";
 
-import { createTask } from "~/graphql/mutations";
+import { createTask, updateTask } from "~/graphql/mutations";
 import { getTasks } from "~/graphql/queries";
 
 export const meta: MetaFunction = () => {
@@ -24,8 +24,15 @@ export const meta: MetaFunction = () => {
 
 export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
-  const { task: title } = Object.fromEntries(formData);
-  const response = await createTask(title);
+  const { id, task: title } = Object.fromEntries(formData);
+  let response;
+
+  if (id && !title) {
+    response = await updateTask(id);
+  } else {
+    response = await createTask(title);
+  }
+
   return json({ task: response.data });
 };
 
@@ -36,6 +43,10 @@ export const loader = async () => {
 
 export default function Index() {
   const { tasks } = useLoaderData<typeof loader>();
+
+  if (tasks && tasks.length === 0) {
+    return <h1>No results</h1>
+  }
 
   const all = tasks.length;
   const complete = tasks.filter((task: Task) => task.done).length;
