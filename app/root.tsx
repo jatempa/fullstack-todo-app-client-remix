@@ -10,10 +10,12 @@ import {
 
 import styles from "~/styles/index.css";
 import { links as cardStyles } from "~/components/Card";
+import { links as inputStyles } from "~/components/CustomTaskInput";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
   ...cardStyles(),
+  ...inputStyles(),
 ];
 
 export default function App() {
