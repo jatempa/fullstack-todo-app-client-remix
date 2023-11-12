@@ -9,9 +9,11 @@ import {
 } from "@remix-run/react";
 
 import styles from "~/styles/index.css";
+import { links as cardStyles } from "~/components/Card";
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: styles }
+  { rel: "stylesheet", href: styles },
+  ...cardStyles(),
 ];
 
 export default function App() {
