@@ -12,12 +12,14 @@ import styles from "~/styles/index.css";
 import { links as cardStyles } from "~/components/Card";
 import { links as inputStyles } from "~/components/CustomTaskInput";
 import { links as itemListStyles } from "~/components/ItemList";
+import { links as resultStyles } from "~/components/Results";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
   ...cardStyles(),
   ...inputStyles(),
-  ...itemListStyles()
+  ...itemListStyles(),
+  ...resultStyles()
 ];
 
 export default function App() {

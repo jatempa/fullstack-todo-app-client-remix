@@ -9,6 +9,8 @@ import Card from "~/components/Card";
 import CustomTaskInput from "~/components/CustomTaskInput";
 import Header from "~/components/Header";
 import ItemList from "~/components/ItemList";
+import Results from "~/components/Results";
+import type { Task } from "~/components/Item";
 
 import { createTask } from "~/graphql/mutations";
 import { getTasks } from "~/graphql/queries";
@@ -35,11 +37,20 @@ export const loader = async () => {
 export default function Index() {
   const { tasks } = useLoaderData<typeof loader>();
 
+  const all = tasks.length;
+  const complete = tasks.filter((task: Task) => task.done).length;
+  const incomplete = all - complete;
+
   return (
     <Card>
       <Header>To Do</Header>
       <CustomTaskInput />
       <ItemList items={tasks} />
+      <Results
+        all={all}
+        complete={complete}
+        incomplete={incomplete}
+      />
     </Card>
   );
 }
