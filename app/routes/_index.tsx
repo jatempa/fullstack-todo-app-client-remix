@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import Card from "~/components/Card";
+import Header from "~/components/Header";
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,7 +12,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <Card>
-      <h1>To Do</h1>
+      <Header>To Do</Header>
     </Card>
   );
 }
