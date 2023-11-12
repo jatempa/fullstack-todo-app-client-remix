@@ -4,9 +4,12 @@ import {
   type MetaFunction
 } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+
 import Card from "~/components/Card";
 import CustomTaskInput from "~/components/CustomTaskInput";
 import Header from "~/components/Header";
+import ItemList from "~/components/ItemList";
+
 import { createTask } from "~/graphql/mutations";
 import { getTasks } from "~/graphql/queries";
 
@@ -31,11 +34,12 @@ export const loader = async () => {
 
 export default function Index() {
   const { tasks } = useLoaderData<typeof loader>();
-  console.log(tasks)
+
   return (
     <Card>
       <Header>To Do</Header>
       <CustomTaskInput />
+      <ItemList items={tasks} />
     </Card>
   );
 }

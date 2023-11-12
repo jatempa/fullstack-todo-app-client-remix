@@ -11,11 +11,13 @@ import {
 import styles from "~/styles/index.css";
 import { links as cardStyles } from "~/components/Card";
 import { links as inputStyles } from "~/components/CustomTaskInput";
+import { links as itemListStyles } from "~/components/ItemList";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
   ...cardStyles(),
   ...inputStyles(),
+  ...itemListStyles()
 ];
 
 export default function App() {
