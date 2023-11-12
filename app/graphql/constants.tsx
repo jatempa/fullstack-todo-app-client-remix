@@ -21,7 +21,7 @@ export const ADD_TASK = `
 `
 
 export const UPDATE_TASK = `
-  mutation UpdateTask($id: String!){
+  mutation UpdateTask($id: ID!){
     updateTask(id: $id) {
       id
       done
