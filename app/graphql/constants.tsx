@@ -9,9 +9,20 @@ export const GET_TASKS = `
     }
   }
 `
+
 export const ADD_TASK = `
   mutation AddTask($title: String!){
     addTask(title: $title) {
+      id
+      done
+      title
+    }
+  }
+`
+
+export const UPDATE_TASK = `
+  mutation UpdateTask($id: String!){
+    updateTask(id: $id) {
       id
       done
       title
