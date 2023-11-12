@@ -1,10 +1,10 @@
 import type { LinksFunction } from "@remix-run/node";
+import { useFetcher } from "@remix-run/react";
 
 import Item, { type Task } from "./Item";
+import Mark from "./Mark";
 
 import styles from "../styles/item_list.css";
-import Mark from "./Mark";
-import { useFetcher } from "@remix-run/react";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles }
