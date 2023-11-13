@@ -9,10 +9,11 @@ import {
 } from "@remix-run/react";
 
 import styles from "~/styles/index.css";
-import { links as cardStyles } from "~/components/Card";
+import Card, { links as cardStyles } from "~/components/Card";
 import { links as inputStyles } from "~/components/CustomTaskInput";
 import { links as itemListStyles } from "~/components/ItemList";
 import { links as resultStyles } from "~/components/Results";
+import Header from "./components/Header";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
@@ -32,7 +33,10 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <Card>
+          <Header>To Do</Header>
+          <Outlet />
+        </Card>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

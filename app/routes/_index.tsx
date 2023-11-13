@@ -5,9 +5,7 @@ import {
 } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
-import Card from "~/components/Card";
 import CustomTaskInput from "~/components/CustomTaskInput";
-import Header from "~/components/Header";
 import ItemList from "~/components/ItemList";
 import Results from "~/components/Results";
 import type { Task } from "~/components/Item";
@@ -42,8 +40,7 @@ export default function Index() {
   const incomplete = all - complete;
 
   return (
-    <Card>
-      <Header>To Do</Header>
+    <>
       <CustomTaskInput />
       <ItemList items={tasks} />
       <Results
@@ -51,6 +48,6 @@ export default function Index() {
         complete={complete}
         incomplete={incomplete}
       />
-    </Card>
+    </>
   );
 }
