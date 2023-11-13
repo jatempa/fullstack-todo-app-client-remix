@@ -17,7 +17,7 @@ export async function createTask(title: FormDataEntryValue) {
   return await response.json();
 }
 
-export async function updateTask(id: FormDataEntryValue) {
+export async function updateTask(id: string | undefined) {
   const response = await fetch(GRAPHQL_URL, {
     body: JSON.stringify({
       query: UPDATE_TASK,
