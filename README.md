@@ -1,5 +1,5 @@
 # fullstack-todo-app
 
-### Client is implements with Remix JS.
+### Client is implemented with Remix JS.
 
 ![](./img/result.gif)
