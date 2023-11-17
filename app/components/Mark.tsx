@@ -5,7 +5,7 @@ import type { Task } from "./Item";
 export default function Mark({ item }: { item: Task }) {
   const fetcher = useFetcher({ key: "update-task" });
 
-  const updateStatus = (id: string) => {
+  const updateStatus = (id: number) => {
     fetcher.submit(id, { method: "POST", action: `/tasks/${id}/update` })
   }
 
